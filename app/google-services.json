@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "160205764910",
+    "firebase_url": "https://iitr-connect-90cc4.firebaseio.com",
+    "project_id": "iitr-connect-90cc4",
+    "storage_bucket": "iitr-connect-90cc4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160205764910:android:4438b92673aad79b",
+        "android_client_info": {
+          "package_name": "com.theimprovisers.iitrconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160205764910-hg9nb16sd3mlo29r0up7vg22ekgq2hkn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theimprovisers.iitrconnect",
+            "certificate_hash": "0e17655619f86a7895752d32f95a3715f6afa796"
+          }
+        },
+        {
+          "client_id": "160205764910-n7a6t3284q5fuj5s91jo8jtlp6usjv8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZJzmcbNjrTbHM793hxUojgLFFk-F3F6k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160205764910-n7a6t3284q5fuj5s91jo8jtlp6usjv8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
