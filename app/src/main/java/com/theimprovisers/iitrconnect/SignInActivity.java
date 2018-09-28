@@ -68,6 +68,7 @@ public class SignInActivity extends AppCompatActivity implements
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
+
     }
     // [END on_start_check_user]
 
@@ -86,7 +87,7 @@ public class SignInActivity extends AppCompatActivity implements
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
-                // [START_EXCLUDE]
+                // [START_EXCLUDE]int
                 updateUI(null);
                 // [END_EXCLUDE]
             }
@@ -141,8 +142,11 @@ public class SignInActivity extends AppCompatActivity implements
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
 
+            Intent changeIntent = new Intent(this,MainActivity.class);
+            startActivity(changeIntent);
+
         } else {
-            mStatusTextView.setText("Signed in");
+            mStatusTextView.setText("Signed out");
             mDetailTextView.setText(null);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);

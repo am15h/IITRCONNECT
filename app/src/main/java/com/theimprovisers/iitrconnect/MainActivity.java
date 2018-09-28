@@ -17,6 +17,4 @@ public class MainActivity extends AppCompatActivity
         Profile sampleProfile = new Profile("alpha","cse","beta@gmail",1);
         NetworkMethods.WriteProfile(sampleProfile);
     }
-
-
 }
