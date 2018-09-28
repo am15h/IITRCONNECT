@@ -1,5 +1,8 @@
 package com.theimprovisers.iitrconnect;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Profile
 {
     public String name;
@@ -7,6 +10,12 @@ public class Profile
     public String email;
     public int year;
     public Tag[] tags;
+
+    public static String NAME_KEY = "name";
+    public static String BRANCH_KEY = "branch";
+    public static String EMAIL_KEY = "email";
+    public static String YEAR_KEY = "year";
+
 
 
     // Constructor
@@ -23,5 +32,20 @@ public class Profile
         tags[2] = new Tag("tag2");
         tags[3] = new Tag("tag3");
         tags[4] = new Tag("tag4");
+    }
+
+    public Map<String,Object> GetMap()
+    {
+        Map<String,Object> map = new HashMap<>();
+        map.put(NAME_KEY,name);
+        map.put(BRANCH_KEY,branch);
+        map.put(EMAIL_KEY,email);
+        map.put(YEAR_KEY,year);
+
+        for (int i = 0;i < tags.length;i++)
+        {
+            map.put(tags[i].name,tags[i].value);
+        }
+        return map;
     }
 }
