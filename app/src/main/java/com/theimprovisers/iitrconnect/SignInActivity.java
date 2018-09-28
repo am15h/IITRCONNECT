@@ -160,4 +160,9 @@ public class SignInActivity extends AppCompatActivity {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
+
+    private void NewMethod()
+    {
+        
+    }
 }
