@@ -161,6 +161,7 @@ public class SignInActivity extends AppCompatActivity {
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 
+    //New Method
     private void NewMethod()
     {
 
