@@ -163,6 +163,6 @@ public class SignInActivity extends AppCompatActivity {
 
     private void NewMethod()
     {
-        
+
     }
 }
