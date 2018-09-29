@@ -177,10 +177,15 @@ public class SignInActivity extends AppCompatActivity implements
 
     private void OnSignInSuccess(FirebaseUser user)
     {
+        /*
         Log.i("App","Sign in success");
         NetworkMethods.Initialise(FirebaseFirestore.getInstance());
         Log.i("App","Email is "+user.getEmail());
-        NetworkMethods.ReadProfile(user.getEmail(), this);
+        //NetworkMethods.ReadProfile(user.getEmail(), this);
+        NetworkMethods.ReadProfile("default",this);*/
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+
     }
 
     @Override
