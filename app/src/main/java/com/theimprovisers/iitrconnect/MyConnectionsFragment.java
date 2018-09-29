@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,8 +18,9 @@ import android.view.ViewGroup;
 public class MyConnectionsFragment extends Fragment {
     public static Profile profile;
     public static Profile[] myProfiles;
+    public static ArrayList<Profile> profileArrayList = new ArrayList<>();
 
-    private AddAdapter mAdapter;
+    private MyAdapter mAdapter;
 
     private RecyclerView mProfileRecycler;
 
@@ -30,7 +33,7 @@ public class MyConnectionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        Print.print("RENDER");
         myProfiles = new Profile[15];
         myProfiles[0] = new Profile("Amish","CSE","amish@gmail.com",1);
         myProfiles[1] = new Profile("Manas","CSE","amish@gmail.com",2);
@@ -45,7 +48,7 @@ public class MyConnectionsFragment extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_my_connections,container,false);
         mProfileRecycler = (RecyclerView)layout.findViewById(R.id.recycler_my_connection);
 
-        mAdapter = new AddAdapter(getActivity(),myProfiles);
+        mAdapter = new MyAdapter(getActivity(),myProfiles);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mProfileRecycler.setLayoutManager(layoutManager);
@@ -55,6 +58,18 @@ public class MyConnectionsFragment extends Fragment {
 
 
         //return inflater.inflate(R.layout.fragment_my_connections, container, false);
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        myProfiles = profileArrayList.toArray(new Profile[profileArrayList.size()]);
+        mAdapter = new MyAdapter(getActivity(),myProfiles);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mProfileRecycler.setLayoutManager(layoutManager);
+        mProfileRecycler.setAdapter(mAdapter);
     }
 
 }

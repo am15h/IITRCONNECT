@@ -1,6 +1,9 @@
 package com.theimprovisers.iitrconnect;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -12,10 +15,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import static android.content.Context.MODE_PRIVATE;
+
 // Constant with a file name
 class StorageClass
 {
-    public static String fileName = "storageCache.bsdk";
+    public static String fileName = "storageCache.ser";
+    public static SharedPreferences mPref;
     public Profile[] arrayProfile;
 
     // Serializes an object and saves it to a file
@@ -23,28 +29,40 @@ class StorageClass
     {
         try
         {
-            FileOutputStream fileOutputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+            FileOutputStream fileOutputStream = context.openFileOutput(fileName, MODE_PRIVATE);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(this);
             objectOutputStream.close();
             fileOutputStream.close();
+            Print.print("Saved");
         }
         catch (IOException e)
         {
             e.printStackTrace();
+            Print.print("Error");
         }
     }
-    public static void Write(ArrayList<Profile> list,Context context)
+    public static void Write(ArrayList<Profile> list)
     {
         StorageClass s = new StorageClass();
         s.arrayProfile = list.toArray(new Profile[list.size()]);
-        s.saveToFile(context);
+        SharedPreferences.Editor prefsEditor = StorageClass.mPref.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(s);
+        prefsEditor.putString("MyObject", json);
+        prefsEditor.commit();
+        Print.print("SAved"+json);
     }
-    public static ArrayList<Profile> Read(Context context)
+    public static ArrayList<Profile> Read()
     {
-        StorageClass s = readFromFile(context);
+
+        Gson gson = new Gson();
+        String json = StorageClass.mPref.getString("MyObject", "");
+        Print.print(json);
+        StorageClass s = gson.fromJson(json, StorageClass.class);
         ArrayList<Profile> l = new ArrayList<Profile>();
-        if (s.arrayProfile == null)
+        Print.print("Read");
+        if (s == null)
         {
             return  l;
         }

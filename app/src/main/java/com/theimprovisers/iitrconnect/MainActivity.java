@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements ResultTrigger
@@ -29,7 +30,20 @@ public class MainActivity extends AppCompatActivity implements ResultTrigger
         NetworkMethods.WriteProfile(sampleProfile,this);
         //NetworkMethods.ReadProfile("default",this);
 */
+    Profile p1 = new Profile("sdgk","awojf","saf",2);
+    Profile p2 = new Profile("aflsal","sfsf","sfkhn",3);
+        //ArrayList<Profile> list = new ArrayList<Profile>();
+        //ArrayList<Profile> list = StorageClass.Read(getPreferences(MODE_PRIVATE));
 
+        /*list.add(p1);
+        list.add(p2);
+        StorageClass.Write(list,getPreferences(MODE_PRIVATE));
+*/
+        /*
+        for (int i = 0;i < list.size();i++)
+        {
+            list.get(i).Print();
+        }*/
     }
 
     @Override

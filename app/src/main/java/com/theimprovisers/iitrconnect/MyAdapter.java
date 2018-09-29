@@ -71,8 +71,6 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.PersonViewHolder>
     }
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
-
-
         TextView profileName;
         TextView profileBranch;
         TextView profileYear;

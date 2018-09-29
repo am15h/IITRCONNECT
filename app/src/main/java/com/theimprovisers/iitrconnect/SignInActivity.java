@@ -24,6 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+
 public class SignInActivity extends AppCompatActivity implements
         View.OnClickListener,ResultTrigger
 {
@@ -231,5 +233,20 @@ public class SignInActivity extends AppCompatActivity implements
         PersonalInfoAnctivity.profile = profile;
         ViewProfileActivity.profile = profile;
         ProfileListGenerator.profile = profile;
+        StorageClass.mPref = getPreferences(MODE_PRIVATE);
+        MyConnectionsFragment.profileArrayList = StorageClass.Read();
+
+
+/*
+        Profile p1 = new Profile("sdgk","awojf","saf",2);
+        Profile p2 = new Profile("aflsal","sfsf","sfkhn",3);
+        ArrayList<Profile> list = new ArrayList<Profile>();
+        //ArrayList<Profile> list = StorageClass.Read(getPreferences(MODE_PRIVATE));
+
+        list.add(p1);
+        list.add(p2);
+        StorageClass.Write(list,getPreferences(MODE_PRIVATE));*/
+
     }
+
 }

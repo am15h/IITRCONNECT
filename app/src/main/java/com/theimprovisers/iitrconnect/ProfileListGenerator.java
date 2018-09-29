@@ -72,6 +72,10 @@ public class ProfileListGenerator implements ResultTrigger
         }
         boolean sort = false;
         Profile[] p = new Profile[profileArrayList.size()];
+        for (int i = 0;i < profileArrayList.size();i++)
+        {
+            p[i] = profileArrayList.get(i);
+        }
         for (int i = 0;i < p.length;i++)
         {
             if (p[i].branch.toLowerCase().equals(profile.branch.toLowerCase()))
@@ -84,10 +88,7 @@ public class ProfileListGenerator implements ResultTrigger
                 p[i].count += 2;
             }
         }
-        for (int i = 0;i < profileArrayList.size();i++)
-        {
-            p[i] = profileArrayList.get(i);
-        }
+
         while (!sort)
         {
             sort = true;
@@ -126,5 +127,16 @@ public class ProfileListGenerator implements ResultTrigger
             }
         }
         return  -1;
+    }
+    boolean SecondContains(String email)
+    {
+        for (int i = 0;i < MyConnectionsFragment.profileArrayList.size();i++)
+        {
+            if (email.equals(MyConnectionsFragment.profileArrayList.get(i)))
+            {
+                return  true;
+            }
+        }
+        return false;
     }
 }
