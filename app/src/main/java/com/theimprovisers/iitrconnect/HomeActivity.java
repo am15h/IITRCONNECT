@@ -28,6 +28,8 @@ public class HomeActivity extends AppCompatActivity {
         MainNav = (BottomNavigationView) findViewById(R.id.main_nav);
         MainFrame = (FrameLayout) findViewById(R.id.main_frame);
 
+        MainNav.setSelectedItemId(R.id.nav_add_connections);
+
         addConnectionsFragment = new AddConnectionsFragment();
         myConnectionsFragment = new MyConnectionsFragment();
         myProfileFragment = new MyProfileFragment();
@@ -49,17 +51,14 @@ public class HomeActivity extends AppCompatActivity {
                         Log.i("Fragment", "add conn case" );
                         setFragment(addConnectionsFragment);
                         return true;
-
-                        default:
-                            setFragment(myConnectionsFragment);
-                            return true;
-
+                    default:
+                        setFragment(myConnectionsFragment);
+                        return false;
                }
-
             }
         }
         );
-
+        setFragment(addConnectionsFragment);
 
     }
 
