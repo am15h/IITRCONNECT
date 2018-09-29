@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/text_year"
+        style="@style/AppTheme.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignLeft="@+id/profile_name"
+        android:layout_alignTop="@+id/profile_year"
+        android:layout_marginLeft="66dp"
+        android:layout_marginTop="1dp"
+        android:text="Year"
+        android:textColor="@color/greySecondary"
+        tools:text="Year" />
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#757575"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_user" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        style="@style/AppTheme.Subheader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/profile_image"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="4dp"
+        android:layout_toLeftOf="@+id/match_number"
+        android:layout_toRightOf="@+id/profile_image"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="Amish Garg" />
+
+
+    
+
+    <TextView
+        android:id="@+id/profile_year"
+        style="@style/AppTheme.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_name"
+
+        android:layout_alignLeft="@+id/profile_name"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="13dp"
+        android:textColor="@color/greySecondary"
+        tools:text="CSE" />
+
+    <TextView
+        android:id="@+id/branch_year_divider"
+        style="@style/AppTheme.TextDivider"
+        android:layout_alignTop="@+id/profile_year"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/profile_year"
+        android:text="|" />
+
+    <TextView
+        android:id="@+id/profile_branch"
+        style="@style/AppTheme.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/profile_year"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/branch_year_divider"
+        android:textColor="@color/greySecondary"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/match_number"
+        style="@style/AppTheme.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/profile_year"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="3dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="9" />
+
+</RelativeLayout>
