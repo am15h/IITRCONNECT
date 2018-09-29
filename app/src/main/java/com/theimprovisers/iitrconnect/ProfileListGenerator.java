@@ -72,6 +72,18 @@ public class ProfileListGenerator implements ResultTrigger
         }
         boolean sort = false;
         Profile[] p = new Profile[profileArrayList.size()];
+        for (int i = 0;i < p.length;i++)
+        {
+            if (p[i].branch.toLowerCase().equals(profile.branch.toLowerCase()))
+            {
+                p[i].count += 2;
+            }
+
+            if (p[i].year == profile.year)
+            {
+                p[i].count += 2;
+            }
+        }
         for (int i = 0;i < profileArrayList.size();i++)
         {
             p[i] = profileArrayList.get(i);
