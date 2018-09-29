@@ -7,6 +7,8 @@ import android.util.Log;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity implements ResultTrigger
 {
     public static Profile profile;
@@ -17,9 +19,15 @@ public class MainActivity extends AppCompatActivity implements ResultTrigger
 
         setContentView(R.layout.activity_main);
         NetworkMethods.Initialise(FirebaseFirestore.getInstance());
-        //Profile sampleProfile = new Profile("alpha","cse","beta@gmail",1);
-        //NetworkMethods.WriteProfile(sampleProfile,this);
-        NetworkMethods.ReadProfile("default",this);
+        Random rnd = new Random();
+
+        Profile sampleProfile = new Profile("Random"+rnd.nextInt(),"cse"+rnd.nextInt(),rnd.nextInt()+"email@gmail",rnd.nextInt(5));
+        for (int i = 0;i < sampleProfile.tags.length;i++)
+        {
+            sampleProfile.tags[i].value = rnd.nextBoolean();
+        }
+        NetworkMethods.WriteProfile(sampleProfile,this);
+        //NetworkMethods.ReadProfile("default",this);
 
     }
 
@@ -32,6 +40,13 @@ public class MainActivity extends AppCompatActivity implements ResultTrigger
     @Override
     public void OnSuccess()
     {
+        Random rnd = new Random();
+        Profile sampleProfile = new Profile("Random"+rnd.nextInt(),"cse"+rnd.nextInt(),rnd.nextInt()+"email@gmail",rnd.nextInt(5));
+        for (int i = 0;i < sampleProfile.tags.length;i++)
+        {
+            sampleProfile.tags[i].value = rnd.nextBoolean();
+        }
+        NetworkMethods.WriteProfile(sampleProfile,this);
         Log.i("Main","Success");
     }
 }

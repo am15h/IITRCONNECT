@@ -10,19 +10,23 @@ import java.util.Set;
 public class ProfileListGenerator implements ResultTrigger
 {
     public static Profile profile;
+    public ResultTrigger resultTrigger;
     ArrayList<ListGenerator> listGenerators;
     ArrayList<Profile> profileArrayList;
-    public ProfileListGenerator(Profile profile)
+    public ProfileListGenerator(Profile profile,ResultTrigger rTrig)
     {
-
+        resultTrigger = rTrig;
         int tagSize = profile.tags.length;
         Print.print("Ref 1");
         listGenerators = new ArrayList<ListGenerator>();
 
         for (int i = 0;i < tagSize;i++)
         {
-            Print.print("list no "+i);
-            listGenerators.add(new ListGenerator(profile.tags[i].name,this));
+            if (profile.tags[i].value)
+            {
+                Print.print("list no " + i);
+                listGenerators.add(new ListGenerator(profile.tags[i].name, this));
+            }
         }
         profileArrayList = new ArrayList<Profile>();
     }
@@ -49,14 +53,18 @@ public class ProfileListGenerator implements ResultTrigger
             Print.print("List has "+listGenerators.get(i).profileList.size());
             for (int x = 0;x < listGenerators.get(i).profileList.size();x++)
             {
-                int f= (Contains(listGenerators.get(i).profileList.get(x).email));
-                if (f != -1)
+                if (!listGenerators.get(i).profileList.get(x).email.equals(profile.email))
                 {
-                    profileArrayList.get(f).count+= 1;
-                }
-                else
-                {
-                    profileArrayList.add(listGenerators.get(i).profileList.get(x));
+                    int f = (Contains(listGenerators.get(i).profileList.get(x).email));
+                    if (f != -1)
+                    {
+                        profileArrayList.get(f).count += 1;
+                    }
+                    else
+                    {
+                        profileArrayList.add(listGenerators.get(i).profileList.get(x));
+                        profileArrayList.get(profileArrayList.size()-1).count++;
+                    }
                 }
             }
         }
@@ -85,6 +93,7 @@ public class ProfileListGenerator implements ResultTrigger
             Print.print("Common email "+p[i].email+"has no :"+p[i].count);
         }
         Print.print("Generated Final");
+
     }
 
     int Contains(String email)

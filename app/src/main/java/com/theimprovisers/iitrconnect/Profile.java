@@ -29,12 +29,30 @@ public class Profile
         this.email = email;
         this.year = year;
 
-        tags = new Tag[5];
-        tags[0] = new Tag("tag0");
-        tags[1] = new Tag("tag1");
-        tags[2] = new Tag("tag2");
-        tags[3] = new Tag("tag3");
-        tags[4] = new Tag("tag4");
+        tags = new Tag[20];
+        tags[0] = new Tag("Web Development");
+        tags[1] = new Tag("App Development");
+        tags[2] = new Tag("Game Development");
+        tags[3] = new Tag("Backend Development");
+        tags[4] = new Tag("Competitive Programming");
+
+        tags[5] = new Tag("Dance");
+        tags[6] = new Tag("Fine Arts");
+        tags[7] = new Tag("Dramatics");
+        tags[8] = new Tag("Music");
+        tags[9] = new Tag("Culinary");
+
+        tags[10] = new Tag("Football");
+        tags[11] = new Tag("Cricket");
+        tags[12] = new Tag("Badminton");
+        tags[13] = new Tag("Basketball");
+        tags[14] = new Tag("Hockey");
+
+        tags[15] = new Tag("SDS");
+        tags[16] = new Tag("PAG");
+        tags[17] = new Tag("MDG");
+        tags[18] = new Tag("InfoSec");
+        tags[19] = new Tag("DSG");
 
         count = 0;
     }
@@ -46,26 +64,29 @@ public class Profile
         this.year = 0;
 
         tags = new Tag[20];
-        tags[0] = new Tag("tag0");
-        tags[1] = new Tag("tag1");
-        tags[2] = new Tag("tag2");
-        tags[3] = new Tag("tag3");
-        tags[4] = new Tag("tag4");
-        tags[5] = new Tag("tag5");
-        tags[6] = new Tag("tag6");
-        tags[7] = new Tag("tag7");
-        tags[8] = new Tag("tag8");
-        tags[9] = new Tag("tag9");
-        tags[10] = new Tag("tag10");
-        tags[11] = new Tag("tag11");
-        tags[12] = new Tag("tag12");
-        tags[13] = new Tag("tag13");
-        tags[14] = new Tag("tag14");
-        tags[15] = new Tag("tag15");
-        tags[16] = new Tag("tag16");
-        tags[17] = new Tag("tag17");
-        tags[18] = new Tag("tag18");
-        tags[19] = new Tag("tag19");
+        tags[0] = new Tag("Web Development");
+        tags[1] = new Tag("App Development");
+        tags[2] = new Tag("Game Development");
+        tags[3] = new Tag("Backend Development");
+        tags[4] = new Tag("Competitive Programming");
+
+        tags[5] = new Tag("Dance");
+        tags[6] = new Tag("Fine Arts");
+        tags[7] = new Tag("Dramatics");
+        tags[8] = new Tag("Music");
+        tags[9] = new Tag("Culinary");
+
+        tags[10] = new Tag("Football");
+        tags[11] = new Tag("Cricket");
+        tags[12] = new Tag("Badminton");
+        tags[13] = new Tag("Basketball");
+        tags[14] = new Tag("Hockey");
+
+        tags[15] = new Tag("SDS");
+        tags[16] = new Tag("PAG");
+        tags[17] = new Tag("MDG");
+        tags[18] = new Tag("InfoSec");
+        tags[19] = new Tag("DSG");
         count = 0;
     }
 

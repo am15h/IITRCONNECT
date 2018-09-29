@@ -214,7 +214,7 @@ public class SignInActivity extends AppCompatActivity implements
             profile.Print();
             SetProfile(profile);
             Print.print("Changing to Loading");
-            Intent intent = new Intent(this,LoadingActivity.class);
+            Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
         }
     }
@@ -230,5 +230,6 @@ public class SignInActivity extends AppCompatActivity implements
         MyProfileFragment.profile = profile;
         PersonalInfoAnctivity.profile = profile;
         ViewProfileActivity.profile = profile;
+        ProfileListGenerator.profile = profile;
     }
 }
