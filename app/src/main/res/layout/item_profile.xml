@@ -46,7 +46,8 @@
         android:layout_marginTop="13dp"
         android:layout_toEndOf="@+id/profile_image"
         android:text="CSE"
-        android:textColor="@color/greySecondary" />
+        android:textColor="@color/greySecondary"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/branch_year_divider"
