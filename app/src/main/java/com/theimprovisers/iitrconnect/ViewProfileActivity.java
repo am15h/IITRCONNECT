@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class ViewProfileActivity extends AppCompatActivity {
     public static Profile profile;
@@ -18,13 +20,27 @@ public class ViewProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
-        currentProfile = new Profile("Dummy","dummybranch","email @ dummy",2);
-        tagsArray = new String[10];
-        for(int i = 0; i < 10;i++)
+        ArrayList<String> list = new ArrayList<String>();
+        for (int i = 0;i < currentProfile.tags.length;i++)
         {
-            tagsArray[i] = "Javaasfsdf";
+            if (currentProfile.tags[i].value)
+            {
+                if (profile.tags[i].value)
+                {
+                    list.add("#Common# "+currentProfile.tags[i].name);
+                }
+                else
+                {
+                    list.add("    "+currentProfile.tags[i].name);
+                }
+            }
         }
-        mProfileRecycler = (RecyclerView)findViewById(R.id.recyclerView);
+        ((TextView)findViewById(R.id.textView_name)).setText(currentProfile.name);
+        ((TextView)findViewById(R.id.textView_Year)).setText(currentProfile.year+" YEAR");
+        ((TextView)findViewById(R.id.textView_Branch)).setText(currentProfile.branch);
+
+        tagsArray = list.toArray(new String[list.size()]);
+        mProfileRecycler = (RecyclerView)findViewById(R.id.recyclerMy);
 
         Log.i("Recycle", "reached there");
 

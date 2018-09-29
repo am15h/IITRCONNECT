@@ -1,6 +1,7 @@
 package com.theimprovisers.iitrconnect;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -53,6 +54,7 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.PersonViewHolder>
         personViewHolder.profileYear.setText(profileArray[i].year + "Year");
         personViewHolder.profileImage.setImageResource(R.drawable.default_user);
         personViewHolder.matchCounter.setText(profileArray[i].count+"");
+        personViewHolder.currentProfile = profileArray[i];
 
     }
     @Override
@@ -76,6 +78,7 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.PersonViewHolder>
         TextView profileYear;
         TextView matchCounter;
         ImageView profileImage;
+        Profile currentProfile;
 
         PersonViewHolder(View itemView) {
             super(itemView);
@@ -89,7 +92,9 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.PersonViewHolder>
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(),profileName.getText(),Toast.LENGTH_LONG).show();
-
+                    ViewProfileActivity.currentProfile = currentProfile;
+                    Intent intent = new Intent(v.getContext(), ViewProfileActivity.class);
+                    v.getContext().startActivity(intent);
                 }
             });
         }
