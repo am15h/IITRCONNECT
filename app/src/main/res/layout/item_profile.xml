@@ -45,8 +45,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="13dp"
         android:layout_toEndOf="@+id/profile_image"
-        android:textColor="@color/greySecondary"
-        tools:text="CSE" />
+        android:text="CSE"
+        android:textColor="@color/greySecondary" />
 
     <TextView
         android:id="@+id/branch_year_divider"
@@ -70,8 +70,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="0dp"
         android:layout_toRightOf="@+id/branch_year_divider"
-        android:textColor="@color/greySecondary"
-        tools:text="1" />
+        android:text="1"
+        android:textColor="@color/greySecondary" />
 
     <TextView
         android:id="@+id/match_number"

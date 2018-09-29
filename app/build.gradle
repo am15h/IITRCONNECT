@@ -48,4 +48,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     //image circle making library
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+    //gif
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
 }
