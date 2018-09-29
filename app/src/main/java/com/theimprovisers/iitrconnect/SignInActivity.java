@@ -25,7 +25,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignInActivity extends AppCompatActivity implements
-        View.OnClickListener
+        View.OnClickListener,ResultTrigger
 {
 
     private static final int RC_SIGN_IN = 9001;
@@ -177,11 +177,10 @@ public class SignInActivity extends AppCompatActivity implements
 
     private void OnSignInSuccess(FirebaseUser user)
     {
-
-        Intent intent = new Intent(this,Loading.class);
-        startActivity(intent);
-
-        Loading.user = user;
+        NetworkMethods.Initialise(FirebaseFirestore.getInstance());
+        //Profile sampleProfile = new Profile("Utkarsh","cse",user.getEmail(),1);
+        //NetworkMethods.WriteProfile(sampleProfile,this);
+        NetworkMethods.ReadProfile(user.getEmail(),this);
     }
 
     @Override
@@ -194,5 +193,28 @@ public class SignInActivity extends AppCompatActivity implements
         }
     }
 
+    @Override
+    public void OnFailure()
+    {
 
+    }
+
+    @Override
+    public void OnSuccess()
+    {
+        Profile profile = NetworkMethods.profileCache;
+        if (profile == null)
+        {
+            PersonalInfoAnctivity.profile = new Profile();
+            Intent intent = new Intent(this,PersonalInfoAnctivity.class);
+            startActivity(intent);
+        }
+        else
+        {
+            profile.Print();
+            ProfileActivity.profile = profile;
+            Intent intent = new Intent(this,ProfileActivity.class);
+            startActivity(intent);
+        }
+    }
 }

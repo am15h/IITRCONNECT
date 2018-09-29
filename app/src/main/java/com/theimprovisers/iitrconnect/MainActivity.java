@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity implements ResultTrigger
 
         setContentView(R.layout.activity_main);
         NetworkMethods.Initialise(FirebaseFirestore.getInstance());
-        Profile sampleProfile = new Profile("alpha","cse","beta@gmail",1);
+        //Profile sampleProfile = new Profile("alpha","cse","beta@gmail",1);
         //NetworkMethods.WriteProfile(sampleProfile,this);
-        //NetworkMethods.ReadProfile("default",this);
+        NetworkMethods.ReadProfile("default",this);
 
     }
 
