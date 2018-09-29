@@ -7,20 +7,6 @@
     android:orientation="vertical"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/text_year"
-        style="@style/AppTheme.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_alignLeft="@+id/profile_name"
-        android:layout_alignTop="@+id/profile_year"
-        android:layout_marginLeft="66dp"
-        android:layout_marginTop="1dp"
-        android:text="Year"
-        android:textColor="@color/greySecondary"
-        tools:text="Year" />
-
     <ImageView
         android:id="@+id/profile_image"
         android:layout_width="60dp"
@@ -47,8 +33,6 @@
         tools:text="Amish Garg" />
 
 
-    
-
     <TextView
         android:id="@+id/profile_year"
         style="@style/AppTheme.Body1"
@@ -66,8 +50,10 @@
         android:id="@+id/branch_year_divider"
         style="@style/AppTheme.TextDivider"
         android:layout_alignTop="@+id/profile_year"
-        android:layout_marginLeft="7dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
         android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/profile_year"
         android:layout_toRightOf="@+id/profile_year"
         android:text="|" />
 
@@ -77,7 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/profile_year"
-        android:layout_marginLeft="6dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="19dp"
         android:layout_marginTop="0dp"
         android:layout_toRightOf="@+id/branch_year_divider"
         android:textColor="@color/greySecondary"

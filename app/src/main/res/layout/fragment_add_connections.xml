@@ -7,7 +7,7 @@
 
     <!-- Main Restaurants recycler -->
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_profiles"
+        android:id="@+id/recycler_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -21,4 +21,29 @@
         android:layout_marginBottom="0dp"
         android:background="@color/colorAccent"
         tools:listitem="@layout/item_profile" />
+
+    <!-- Empty list (pizza guy) view -->
+    <LinearLayout
+        android:id="@+id/view_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+
+
+        <TextView
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="NO MATCHES FOUND"
+            android:textColor="@color/greyDisabled" />
+
+    </LinearLayout>
 </RelativeLayout>
