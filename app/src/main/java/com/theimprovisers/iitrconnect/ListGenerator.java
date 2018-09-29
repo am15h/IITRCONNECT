@@ -27,6 +27,11 @@ public class ListGenerator
         this.trigger = resultTrigger;
         this.tag = nameTag;
         taskComplete = false;
+
+    }
+
+    public void Trigger()
+    {
         Query query = NetworkMethods.database.collection(NetworkMethods.COLLECTION_KEY).whereEqualTo(tag,true);
         snap = query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
         {
@@ -37,6 +42,7 @@ public class ListGenerator
                 {
                     taskComplete = true;
                     docs = snap.getResult().getDocuments();
+                    Print.print("Listing Profiles");
                     for (int i = 0;i < docs.size();i++)
                     {
                         Profile p =NetworkMethods.GetFromDoc(docs.get(i));
@@ -53,4 +59,5 @@ public class ListGenerator
             }
         });
     }
+
 }
