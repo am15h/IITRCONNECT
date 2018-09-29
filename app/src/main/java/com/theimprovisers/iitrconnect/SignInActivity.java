@@ -117,7 +117,6 @@ public class SignInActivity extends AppCompatActivity implements
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Log.i("Sign in Failure",task.getException().toString()+" Sign in exception");
                             Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -145,15 +144,13 @@ public class SignInActivity extends AppCompatActivity implements
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
 
-            Intent changeIntent = new Intent(this,MainActivity.class);
-            startActivity(changeIntent);
 
         } else {
             mStatusTextView.setText("Signed out !!!");
             mDetailTextView.setText(null);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            Log.i("Sign In","Sign in failed");
+
         }
     }
 
