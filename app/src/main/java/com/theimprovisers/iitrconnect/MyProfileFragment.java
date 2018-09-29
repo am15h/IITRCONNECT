@@ -74,6 +74,6 @@ public class MyProfileFragment extends Fragment {
 
         nameTextView.setText(profile.name);
         branchTextView.setText(profile.branch);
-        yearTextView.setText(profile.year+" year");
+        yearTextView.setText(profile.year+" Year");
     }
 }
