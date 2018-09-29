@@ -76,6 +76,19 @@ public class ProfileListGenerator implements ResultTrigger
         {
             p[i] = profileArrayList.get(i);
         }
+        for (int i = 0;i < p.length;i++)
+        {
+            if (p[i].branch.toLowerCase().equals(profile.branch.toLowerCase()))
+            {
+                p[i].count += 2;
+            }
+
+            if (p[i].year == profile.year)
+            {
+                p[i].count += 2;
+            }
+        }
+
         while (!sort)
         {
             sort = true;
@@ -114,5 +127,16 @@ public class ProfileListGenerator implements ResultTrigger
             }
         }
         return  -1;
+    }
+    boolean SecondContains(String email)
+    {
+        for (int i = 0;i < MyConnectionsFragment.profileArrayList.size();i++)
+        {
+            if (email.equals(MyConnectionsFragment.profileArrayList.get(i)))
+            {
+                return  true;
+            }
+        }
+        return false;
     }
 }
