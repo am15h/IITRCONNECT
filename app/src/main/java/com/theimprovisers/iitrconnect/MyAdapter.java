@@ -2,6 +2,8 @@ package com.theimprovisers.iitrconnect;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -18,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,6 +90,10 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.PersonViewHolder>
             profileYear = (TextView)itemView.findViewById(R.id.profile_year);
             profileImage = (ImageView)itemView.findViewById(R.id.profile_image);
             matchCounter = (TextView)itemView.findViewById(R.id.match_number);
+            Random rnd = new Random();
+            //profileImage.setColorFilter(ContextCompat.getColor(context, R.color.COLOR_YOUR_COLOR), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+            profileImage.setColorFilter(Color.argb(255, 127+rnd.nextInt(128), 127+rnd.nextInt(128), 127+rnd.nextInt(128)),PorterDuff.Mode.MULTIPLY);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
