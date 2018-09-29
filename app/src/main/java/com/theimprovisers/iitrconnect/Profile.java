@@ -34,7 +34,7 @@ public class Profile
         tags[1] = new Tag("App Development");
         tags[2] = new Tag("Game Development");
         tags[3] = new Tag("Backend Development");
-        tags[4] = new Tag("COBOL Lovers");
+        tags[4] = new Tag("Competitive Programming");
 
         tags[5] = new Tag("Dance");
         tags[6] = new Tag("Fine Arts");
@@ -68,7 +68,7 @@ public class Profile
         tags[1] = new Tag("App Development");
         tags[2] = new Tag("Game Development");
         tags[3] = new Tag("Backend Development");
-        tags[4] = new Tag("COBOL Lovers");
+        tags[4] = new Tag("Competitive Programming");
 
         tags[5] = new Tag("Dance");
         tags[6] = new Tag("Fine Arts");
