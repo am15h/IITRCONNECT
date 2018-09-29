@@ -10,11 +10,12 @@ import java.util.Set;
 public class ProfileListGenerator implements ResultTrigger
 {
     public static Profile profile;
+    public ResultTrigger resultTrigger;
     ArrayList<ListGenerator> listGenerators;
     ArrayList<Profile> profileArrayList;
-    public ProfileListGenerator(Profile profile)
+    public ProfileListGenerator(Profile profile,ResultTrigger rTrig)
     {
-
+        resultTrigger = rTrig;
         int tagSize = profile.tags.length;
         Print.print("Ref 1");
         listGenerators = new ArrayList<ListGenerator>();
@@ -92,6 +93,7 @@ public class ProfileListGenerator implements ResultTrigger
             Print.print("Common email "+p[i].email+"has no :"+p[i].count);
         }
         Print.print("Generated Final");
+
     }
 
     int Contains(String email)

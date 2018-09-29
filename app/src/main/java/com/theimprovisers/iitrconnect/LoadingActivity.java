@@ -13,8 +13,7 @@ public class LoadingActivity extends AppCompatActivity implements ResultTrigger
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
         profile.Print();
-        profileListGenerator = new ProfileListGenerator(profile);
-
+        profileListGenerator = new ProfileListGenerator(profile,this);
     }
 
     @Override
