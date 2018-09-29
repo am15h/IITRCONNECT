@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewProfileActivity">
+
     <TextView
         android:id="@+id/textView_Year"
         android:layout_width="123dp"
@@ -20,12 +21,14 @@
         android:id="@+id/textView_Branch"
         android:layout_width="111dp"
         android:layout_height="39dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center_vertical"
         android:text="Branch"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toStartOf="@+id/textView_Year" />
+        app:layout_constraintEnd_toStartOf="@+id/textView_Year"
+        app:layout_constraintStart_toEndOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView_myProfile"
@@ -89,7 +92,7 @@
         app:srcCompat="@drawable/default_user" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerMy"
         android:layout_width="359dp"
         android:layout_height="270dp"
         android:layout_marginStart="8dp"
@@ -115,7 +118,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+        app:layout_constraintTop_toBottomOf="@+id/recyclerMy">
 
         <Button
             android:id="@+id/add_button"
