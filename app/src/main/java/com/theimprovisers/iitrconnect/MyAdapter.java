@@ -52,11 +52,20 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.PersonViewHolder>
         personViewHolder.profileBranch.setText(profileArray[i].branch);
         personViewHolder.profileYear.setText(profileArray[i].year + "Year");
         personViewHolder.profileImage.setImageResource(R.drawable.default_user);
+        personViewHolder.matchCounter.setText(profileArray[i].count+"");
 
     }
     @Override
     public int getItemCount() {
-        return profileArray.length;
+        if (profileArray != null)
+        {
+            return profileArray.length;
+        }
+        else
+        {
+            Print.print("Profile array null");
+            return 0;
+        }
     }
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
@@ -65,6 +74,7 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.PersonViewHolder>
         TextView profileName;
         TextView profileBranch;
         TextView profileYear;
+        TextView matchCounter;
         ImageView profileImage;
 
         PersonViewHolder(View itemView) {
@@ -74,7 +84,7 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.PersonViewHolder>
             profileBranch = (TextView)itemView.findViewById(R.id.profile_branch);
             profileYear = (TextView)itemView.findViewById(R.id.profile_year);
             profileImage = (ImageView)itemView.findViewById(R.id.profile_image);
-
+            matchCounter = (TextView)itemView.findViewById(R.id.match_number);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

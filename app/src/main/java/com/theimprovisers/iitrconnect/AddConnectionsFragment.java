@@ -45,15 +45,6 @@ public class AddConnectionsFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        profiles = new Profile[15];
-        profiles[0] = new Profile("Amish","CSE","amish@gmail.com",1);
-        profiles[1] = new Profile("Manas","CSE","amish@gmail.com",2);
-        profiles[2] = new Profile("Utka","CSE","amish@gmail.com",3);
-
-        for(int i = 0; i < 15;i++)
-        {
-            profiles[i] = new Profile("Utka","CSE","amish@gmail.com",3);
-        }
         // Inflate the layout for this fragment
 
         /*old

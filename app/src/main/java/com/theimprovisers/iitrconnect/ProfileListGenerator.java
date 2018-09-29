@@ -1,5 +1,7 @@
 package com.theimprovisers.iitrconnect;
 
+import android.content.Intent;
+
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,18 +19,17 @@ public class ProfileListGenerator implements ResultTrigger
     {
         resultTrigger = rTrig;
         int tagSize = profile.tags.length;
-        Print.print("Ref 1");
         listGenerators = new ArrayList<ListGenerator>();
 
         for (int i = 0;i < tagSize;i++)
         {
             if (profile.tags[i].value)
             {
-                Print.print("list no " + i);
                 listGenerators.add(new ListGenerator(profile.tags[i].name, this));
             }
         }
         profileArrayList = new ArrayList<Profile>();
+        OnSuccess();
     }
 
     @Override
@@ -44,6 +45,7 @@ public class ProfileListGenerator implements ResultTrigger
         {
             if (listGenerators.get(i).taskComplete == false)
             {
+                listGenerators.get(i).Trigger();
                 return;
             }
         }
@@ -93,6 +95,8 @@ public class ProfileListGenerator implements ResultTrigger
             Print.print("Common email "+p[i].email+"has no :"+p[i].count);
         }
         Print.print("Generated Final");
+        AddConnectionsFragment.profiles = p;
+        resultTrigger.OnSuccess();
 
     }
 

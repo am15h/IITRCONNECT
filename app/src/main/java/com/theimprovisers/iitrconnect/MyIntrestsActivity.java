@@ -310,7 +310,7 @@ public class MyIntrestsActivity extends AppCompatActivity implements ResultTrigg
     @Override
     public void OnSuccess()
     {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, LoadingActivity.class);
         startActivity(intent);
     }
 }
