@@ -21,7 +21,7 @@ public class NetworkMethods
     {
         NetworkMethods.database = database;
         initialised = true;
-        Log.i("App", "Database initialised");
+        Log.i("App", "Database initialised"+database.toString());
     }
 
     public static void WriteProfile(Profile profile, final ResultTrigger trigger)
@@ -49,7 +49,7 @@ public class NetworkMethods
     public static void ReadProfile(String index, final ResultTrigger trigger)
     {
         DocumentReference user = database.collection(COLLECTION_KEY).document(index);
-        Log.i("App","Step 1");
+        Log.i("App","Step 1"+user);
         user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
         {
             @Override
@@ -67,6 +67,7 @@ public class NetworkMethods
                     if (name != null && email != null && branch != null && year != null)
                     {
                         Profile profile = new Profile((String)name,(String)email,(String)branch,(int)((long)year));
+                        boolean validTags = true;
                         for (int i = 0;i < profile.tags.length;i++)
                         {
                             Object tagObj = doc.get(profile.tags[i].name);
@@ -76,21 +77,30 @@ public class NetworkMethods
                             }
                             else
                             {
-                                profileCache = null;
-                                trigger.OnSuccess();
-                                return;
+                                validTags = false;
+                                break;
                             }
                         }
-                        profileCache = profile;
-                        profile.Print();
-                        Log.i("App","Profile loading success");
-                        trigger.OnSuccess();
-                        return;
+                        if (validTags)
+                        {
+                            profileCache = profile;
+                            profile.Print();
+                            Log.i("App", "Profile loading success");
+                            trigger.OnSuccess();
+                        }
+                        else
+                        {
+                            profileCache = null;
+                            trigger.OnSuccess();
+                            Log.i("App", "Profile loading failed");
+                        }
                     }
-                    profileCache = null;
-                    trigger.OnSuccess();
-                    Log.i("App","Profile loading failed");
-                    //profileCache = profile;
+                    else
+                    {
+                        profileCache = null;
+                        trigger.OnSuccess();
+                        Log.i("App", "Profile loading failed");
+                    }
 
                 }
             }
