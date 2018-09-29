@@ -23,9 +23,10 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddConnectionsFragment extends Fragment  {
+public class AddConnectionsFragment extends Fragment
+{
     public static Profile[] profiles;
-    public  static Profile profile;
+    public static Profile profile;
 
     private MyAdapter mAdapter;
 
@@ -38,14 +39,16 @@ public class AddConnectionsFragment extends Fragment  {
     private RecyclerView.LayoutManager mLayoutManager;
     */
 
-    public AddConnectionsFragment() {
+    public AddConnectionsFragment()
+    {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
 
         // Inflate the layout for this fragment
 
@@ -65,8 +68,8 @@ public class AddConnectionsFragment extends Fragment  {
         mRecyclerView.setAdapter(mAdapter);
         */
 
-        View layout= inflater.inflate(R.layout.fragment_add_connections, container, false);
-        mProfileRecycler = (RecyclerView)layout.findViewById(R.id.recycler_add);
+        View layout = inflater.inflate(R.layout.fragment_add_connections, container, false);
+        mProfileRecycler = (RecyclerView) layout.findViewById(R.id.recycler_add);
 
 
         return layout;
@@ -79,7 +82,7 @@ public class AddConnectionsFragment extends Fragment  {
     {
         super.onResume();
         ArrayList<Profile> profileArrayList = new ArrayList<>();
-        for (int i = 0;i < AddConnectionsFragment.profiles.length;i++)
+        for (int i = 0; i < AddConnectionsFragment.profiles.length; i++)
         {
             if (!SecondContains(AddConnectionsFragment.profiles[i].email))
             {
@@ -94,7 +97,6 @@ public class AddConnectionsFragment extends Fragment  {
         AddConnectionsFragment.profiles = profileArrayList.toArray(new Profile[profileArrayList.size()]);
 
 
-
         Log.i("Recycle", "reached there");
 
         mAdapter = new MyAdapter(getActivity(), profiles);
@@ -106,11 +108,11 @@ public class AddConnectionsFragment extends Fragment  {
 
     boolean SecondContains(String email)
     {
-        for (int i = 0;i < MyConnectionsFragment.profileArrayList.size();i++)
+        for (int i = 0; i < MyConnectionsFragment.profileArrayList.size(); i++)
         {
             if (email.equals(MyConnectionsFragment.profileArrayList.get(i).email))
             {
-                return  true;
+                return true;
             }
         }
         return false;
