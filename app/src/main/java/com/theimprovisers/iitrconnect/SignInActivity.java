@@ -212,8 +212,8 @@ public class SignInActivity extends AppCompatActivity implements
         else
         {
             profile.Print();
-            ProfileActivity.profile = profile;
-            Intent intent = new Intent(this,ProfileActivity.class);
+            HomeActivity.profile = profile;
+            Intent intent = new Intent(this,HomeActivity.class);
             startActivity(intent);
         }
     }

@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public static Profile profile;
     private BottomNavigationView MainNav;
     private FrameLayout MainFrame;
     private AddConnectionsFragment addConnectionsFragment;
