@@ -43,7 +43,6 @@ public class MyConnectionsFragment extends Fragment {
         {
             myProfiles[i] = new Profile("Utka","CSE","amish@gmail.com",3);
         }
-        // I
 
         View layout = inflater.inflate(R.layout.fragment_my_connections,container,false);
         mProfileRecycler = (RecyclerView)layout.findViewById(R.id.recycler_my_connection);
