@@ -1,7 +1,5 @@
 package com.theimprovisers.iitrconnect;
 
-import android.util.Log;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +15,6 @@ public class Profile
     public static String BRANCH_KEY = "branch";
     public static String EMAIL_KEY = "email";
     public static String YEAR_KEY = "year";
-
 
 
 
