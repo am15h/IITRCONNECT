@@ -27,6 +27,7 @@ public class PersonalInfoAnctivity extends AppCompatActivity implements ResultTr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info_anctivity);
         Log.i("App","reached"+profile.email);
+
         textEmail = (TextView)findViewById(R.id.text_email);
         nextButton  = (Button)findViewById(R.id.next_button);
         inputName = (EditText)findViewById(R.id.input_name);
@@ -59,7 +60,7 @@ public class PersonalInfoAnctivity extends AppCompatActivity implements ResultTr
     public void OnSuccess()
     {
         Log.i("App","Changing activity");
-        Intent intent = new Intent(this,MyIntrestsActivity.class);
+        Intent intent = new Intent(this,HomeActivity.class);
         startActivity(intent);
     }
 

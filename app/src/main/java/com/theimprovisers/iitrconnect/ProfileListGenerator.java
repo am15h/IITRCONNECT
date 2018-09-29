@@ -21,8 +21,11 @@ public class ProfileListGenerator implements ResultTrigger
 
         for (int i = 0;i < tagSize;i++)
         {
-            Print.print("list no "+i);
-            listGenerators.add(new ListGenerator(profile.tags[i].name,this));
+            if (profile.tags[i].value)
+            {
+                Print.print("list no " + i);
+                listGenerators.add(new ListGenerator(profile.tags[i].name, this));
+            }
         }
         profileArrayList = new ArrayList<Profile>();
     }
@@ -49,14 +52,18 @@ public class ProfileListGenerator implements ResultTrigger
             Print.print("List has "+listGenerators.get(i).profileList.size());
             for (int x = 0;x < listGenerators.get(i).profileList.size();x++)
             {
-                int f= (Contains(listGenerators.get(i).profileList.get(x).email));
-                if (f != -1)
+                if (!listGenerators.get(i).profileList.get(x).email.equals(profile.email))
                 {
-                    profileArrayList.get(f).count+= 1;
-                }
-                else
-                {
-                    profileArrayList.add(listGenerators.get(i).profileList.get(x));
+                    int f = (Contains(listGenerators.get(i).profileList.get(x).email));
+                    if (f != -1)
+                    {
+                        profileArrayList.get(f).count += 1;
+                    }
+                    else
+                    {
+                        profileArrayList.add(listGenerators.get(i).profileList.get(x));
+                        profileArrayList.get(profileArrayList.size()-1).count++;
+                    }
                 }
             }
         }
