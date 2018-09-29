@@ -59,7 +59,7 @@ public class PersonalInfoAnctivity extends AppCompatActivity implements ResultTr
     public void OnSuccess()
     {
         Log.i("App","Changing activity");
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this,MyIntrestsActivity.class);
         startActivity(intent);
     }
 

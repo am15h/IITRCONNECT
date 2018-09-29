@@ -12,8 +12,7 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class AddConnectionsFragment extends Fragment {
-
-
+    public static Profile profile;
     public AddConnectionsFragment() {
         // Required empty public constructor
     }

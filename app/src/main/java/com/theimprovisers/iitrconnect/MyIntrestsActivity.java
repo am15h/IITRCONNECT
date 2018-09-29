@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MyIntrestsActivity extends AppCompatActivity {
+    public static Profile profile;
+
 private Button buttonProgrammingLanguage;
 private Button buttonCulturalInterest;
 private Button buttonSportsInterest;

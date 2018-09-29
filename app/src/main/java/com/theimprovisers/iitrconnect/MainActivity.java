@@ -9,7 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity implements ResultTrigger
 {
-
+    public static Profile profile;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

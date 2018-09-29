@@ -221,9 +221,14 @@ public class SignInActivity extends AppCompatActivity implements
 
     void SetProfile(Profile profile)
     {
-        PersonalInfoAnctivity.profile = profile;
-        LoadingActivity.profile = profile;
+        AddConnectionsFragment.profile = profile;
         HomeActivity.profile = profile;
-        ProfileListGenerator.profile = profile;
+        LoadingActivity.profile = profile;
+        MainActivity.profile = profile;
+        MyConnectionsFragment.profile = profile;
+        MyIntrestsActivity.profile = profile;
+        MyProfileFragment.profile = profile;
+        PersonalInfoAnctivity.profile = profile;
+        ViewProfileActivity.profile = profile;
     }
 }
