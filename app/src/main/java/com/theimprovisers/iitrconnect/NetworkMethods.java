@@ -22,7 +22,6 @@ public class NetworkMethods
     {
         NetworkMethods.database = database;
         initialised = true;
-        Log.i("App", "Database initialised" + database.toString());
     }
 
     public static void WriteProfile(Profile profile, final ResultTrigger trigger)
@@ -51,7 +50,6 @@ public class NetworkMethods
     {
         NetworkMethods.trigger = trigger;
         DocumentReference user = database.collection(COLLECTION_KEY).document(index);
-        Log.i("App", "Step 1" + index);
         user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
         {
             @Override
@@ -82,10 +80,7 @@ public class NetworkMethods
         Object email = doc.get(Profile.EMAIL_KEY);
         Object branch = doc.get(Profile.BRANCH_KEY);
         Object year = doc.get(Profile.YEAR_KEY);
-
-        Log.i("App", "REF2" + (name != null && email != null && branch != null && year != null));
-
-        Profile profile = new Profile((String) name, (String) email, (String) branch, (int) ((long) year));
+        Profile profile = new Profile((String) name, (String) branch, (String) email, (int) ((long) year));
         boolean validTags = true;
         for (int i = 0; i < profile.tags.length; i++)
         {
