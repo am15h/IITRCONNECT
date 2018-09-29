@@ -16,11 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".PersonalInfoAnctivity" />
         <activity android:name=".InterestsActivity" />
-        <activity android:name=".Loading"></activity>
+        <activity android:name=".Loading" />
+        <activity android:name=".MyIntrestsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

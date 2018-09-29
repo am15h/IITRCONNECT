@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyIntrestsActivity">
+
+    <Button
+        android:id="@+id/button_ProgrammingLaguage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="25dp"
+        android:text="Programming Laguage"
+        android:textAllCaps="false"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="69dp" />
+
+    <Button
+        android:id="@+id/button_CulturalIntrest"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/button_ProgrammingLaguage"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="25dp"
+        android:text="Cultural Intrest"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/button_SportsIntrest"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/button_CulturalIntrest"
+        android:layout_alignStart="@+id/button_CulturalIntrest"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="25dp"
+        android:text="Sports Intrest"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/button_Clubs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/button_SportsIntrest"
+        android:layout_alignStart="@+id/button_ProgrammingLaguage"
+        android:layout_marginStart="0dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="25dp"
+        android:text="Clubs" />
+</RelativeLayout>
