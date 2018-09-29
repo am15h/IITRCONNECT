@@ -19,6 +19,16 @@
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
         android:background="@color/colorAccent"
+        android:visibility="visible"
         tools:listitem="@layout/item_profile" />
+
+    <TextView
+        android:id="@+id/emptyString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text=" ¯\\_(ツ)_/¯"
+        android:textSize="40sp" />
 
 </RelativeLayout>
