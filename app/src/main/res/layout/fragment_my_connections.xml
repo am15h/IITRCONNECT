@@ -6,7 +6,7 @@
     tools:context=".MyConnectionsFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_my"
+        android:id="@+id/recycler_my_connection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 

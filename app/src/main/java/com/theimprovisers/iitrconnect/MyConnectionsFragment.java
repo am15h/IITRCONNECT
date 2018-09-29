@@ -3,6 +3,8 @@ package com.theimprovisers.iitrconnect;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,11 @@ import android.view.ViewGroup;
  */
 public class MyConnectionsFragment extends Fragment {
     public static Profile profile;
+    public static Profile[] myProfiles;
+
+    private AddAdapter mAdapter;
+
+    private RecyclerView mProfileRecycler;
 
     public MyConnectionsFragment() {
         // Required empty public constructor
@@ -23,7 +30,31 @@ public class MyConnectionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_connections, container, false);
+
+        myProfiles = new Profile[15];
+        myProfiles[0] = new Profile("Amish","CSE","amish@gmail.com",1);
+        myProfiles[1] = new Profile("Manas","CSE","amish@gmail.com",2);
+        myProfiles[2] = new Profile("Utka","CSE","amish@gmail.com",3);
+
+        for(int i = 0; i < 15;i++)
+        {
+            myProfiles[i] = new Profile("Utka","CSE","amish@gmail.com",3);
+        }
+        // I
+
+        View layout = inflater.inflate(R.layout.fragment_my_connections,container,false);
+        mProfileRecycler = (RecyclerView)layout.findViewById(R.id.recycler_my_connection);
+
+        mAdapter = new AddAdapter(getActivity(),myProfiles);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mProfileRecycler.setLayoutManager(layoutManager);
+        mProfileRecycler.setAdapter(mAdapter);
+
+        return layout;
+
+
+        //return inflater.inflate(R.layout.fragment_my_connections, container, false);
     }
 
 }
