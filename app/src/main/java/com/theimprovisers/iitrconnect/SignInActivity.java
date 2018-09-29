@@ -177,8 +177,6 @@ public class SignInActivity extends AppCompatActivity implements
     private void OnSignInSuccess(FirebaseUser user)
     {
         NetworkMethods.Initialise(FirebaseFirestore.getInstance());
-        //Profile sampleProfile = new Profile("Utkarsh","cse",user.getEmail(),1);
-        //NetworkMethods.WriteProfile(sampleProfile,this);
         NetworkMethods.ReadProfile(user.getEmail(),this);
         userEmail = user.getEmail();
     }
@@ -205,7 +203,7 @@ public class SignInActivity extends AppCompatActivity implements
         Profile profile = NetworkMethods.profileCache;
         if (profile == null)
         {
-            PersonalInfoAnctivity.profile = new Profile();
+            SetProfile(new Profile());
             PersonalInfoAnctivity.profile.Print();
             PersonalInfoAnctivity.profile.email = mAuth.getCurrentUser().getEmail();
             Intent intent = new Intent(this,PersonalInfoAnctivity.class);
@@ -214,9 +212,18 @@ public class SignInActivity extends AppCompatActivity implements
         else
         {
             profile.Print();
-            HomeActivity.profile = profile;
+            SetProfile(profile);
+            Print.print("Changing to Loading");
             Intent intent = new Intent(this,HomeActivity.class);
             startActivity(intent);
         }
+    }
+
+    void SetProfile(Profile profile)
+    {
+        PersonalInfoAnctivity.profile = profile;
+        LoadingActivity.profile = profile;
+        HomeActivity.profile = profile;
+        ProfileListGenerator.profile = profile;
     }
 }

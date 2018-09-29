@@ -12,6 +12,7 @@ public class Profile
     public String email;
     public int year;
     public Tag[] tags;
+    public int count = 0;
 
     public static String NAME_KEY = "name";
     public static String BRANCH_KEY = "branch";
@@ -34,6 +35,8 @@ public class Profile
         tags[2] = new Tag("tag2");
         tags[3] = new Tag("tag3");
         tags[4] = new Tag("tag4");
+
+        count = 0;
     }
     public Profile()
     {
@@ -48,6 +51,8 @@ public class Profile
         tags[2] = new Tag("tag2");
         tags[3] = new Tag("tag3");
         tags[4] = new Tag("tag4");
+
+        count = 0;
     }
 
     public Map<String,Object> GetMap()

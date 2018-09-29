@@ -1,5 +1,6 @@
 package com.theimprovisers.iitrconnect;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class PersonalInfoAnctivity extends AppCompatActivity {
+public class PersonalInfoAnctivity extends AppCompatActivity implements ResultTrigger {
 
     public static  Profile profile;
     TextView textEmail;
@@ -40,7 +41,7 @@ public class PersonalInfoAnctivity extends AppCompatActivity {
                 onNextClick();
             }
         });
-        textEmail.setText("hello");
+        textEmail.setText(profile.email);
     }
 
 
@@ -50,6 +51,21 @@ public class PersonalInfoAnctivity extends AppCompatActivity {
         profile.branch = inputBranch.getText().toString();
         profile.year = Integer.parseInt(inputYear.getText().toString());
         nextButton.setVisibility(View.GONE);
+        profile.Print();
+        NetworkMethods.WriteProfile(profile,this);
     }
 
+    @Override
+    public void OnSuccess()
+    {
+        Log.i("App","Changing activity");
+        Intent intent = new Intent(this,MainActivity.class);
+        setIntent(intent);
+    }
+
+    @Override
+    public void OnFailure()
+    {
+        nextButton.setVisibility(View.VISIBLE);
+    }
 }
