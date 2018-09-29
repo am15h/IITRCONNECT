@@ -8,26 +8,24 @@
 
     <TextView
         android:id="@+id/textView_Year"
-        android:layout_width="123dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center_vertical"
         android:text="Year"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textView_Branch" />
 
     <TextView
         android:id="@+id/textView_Branch"
-        android:layout_width="111dp"
-        android:layout_height="39dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center_vertical"
         android:text="Branch"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toStartOf="@+id/textView_Year"
         app:layout_constraintStart_toEndOf="@+id/imageView2" />
 
     <TextView
@@ -49,14 +47,12 @@
 
     <TextView
         android:id="@+id/textView_name"
-        android:layout_width="248dp"
-        android:layout_height="39dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:gravity="center_vertical"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
@@ -91,34 +87,47 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/default_user" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="359dp"
-        android:layout_height="270dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.061"
-        tools:listitem="@layout/item_tag" />
+        app:layout_constraintVertical_bias="0.0">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            tools:listitem="@layout/item_tag" />
+    </LinearLayout>
+
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="368dp"
         android:layout_height="68dp"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/add_button"
