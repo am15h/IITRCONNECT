@@ -1,5 +1,7 @@
 package com.theimprovisers.iitrconnect;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +17,7 @@ public class Profile
     public static String BRANCH_KEY = "branch";
     public static String EMAIL_KEY = "email";
     public static String YEAR_KEY = "year";
+
 
 
 
@@ -47,5 +50,23 @@ public class Profile
             map.put(tags[i].name,tags[i].value);
         }
         return map;
+    }
+    public void Print()
+    {
+        StringBuilder bld = new StringBuilder();
+        bld.append(name);
+        bld.append(" ");
+        bld.append(email);
+        bld.append(" ");
+        bld.append(branch);
+        bld.append(" ");
+        bld.append(year);
+        bld.append(" ");
+        for(int i = 0;i < tags.length;i++)
+        {
+            bld.append(tags[i].value);
+            bld.append(" ");
+        }
+        Log.i("Profile",bld.toString());
     }
 }
