@@ -143,8 +143,7 @@ public class SignInActivity extends AppCompatActivity implements
             mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            Intent changeIntent = new Intent(this,PersonalInfoAnctivity.class);
-            startActivity(changeIntent);
+
 
         } else {
             mStatusTextView.setText("Signed out !!!");
