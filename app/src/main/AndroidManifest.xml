@@ -25,6 +25,7 @@
         </activity>
 
         <activity android:name=".MainActivity" />
+        <activity android:name=".ViewProfileActivity" />
         <activity android:name=".PersonalInfoAnctivity" />
         <activity android:name=".InterestsActivity" />
         <activity android:name=".Loading" />
