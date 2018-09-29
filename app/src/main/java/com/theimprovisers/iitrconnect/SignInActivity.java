@@ -27,7 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class SignInActivity extends AppCompatActivity implements
         View.OnClickListener,ResultTrigger
 {
-
+    private String userEmail;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "GoogleActivity";
 
@@ -163,7 +163,6 @@ public class SignInActivity extends AppCompatActivity implements
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             OnSignInSuccess(user);
-
         }
         else
         {
@@ -181,6 +180,7 @@ public class SignInActivity extends AppCompatActivity implements
         //Profile sampleProfile = new Profile("Utkarsh","cse",user.getEmail(),1);
         //NetworkMethods.WriteProfile(sampleProfile,this);
         NetworkMethods.ReadProfile(user.getEmail(),this);
+        userEmail = user.getEmail();
     }
 
     @Override
@@ -206,6 +206,8 @@ public class SignInActivity extends AppCompatActivity implements
         if (profile == null)
         {
             PersonalInfoAnctivity.profile = new Profile();
+            PersonalInfoAnctivity.profile.Print();
+            PersonalInfoAnctivity.profile.email = mAuth.getCurrentUser().getEmail();
             Intent intent = new Intent(this,PersonalInfoAnctivity.class);
             startActivity(intent);
         }
