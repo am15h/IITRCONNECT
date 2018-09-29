@@ -27,7 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class SignInActivity extends AppCompatActivity implements
         View.OnClickListener,ResultTrigger
 {
-
+    private String userEmail;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "GoogleActivity";
 
@@ -163,7 +163,6 @@ public class SignInActivity extends AppCompatActivity implements
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             OnSignInSuccess(user);
-
         }
         else
         {
@@ -178,9 +177,8 @@ public class SignInActivity extends AppCompatActivity implements
     private void OnSignInSuccess(FirebaseUser user)
     {
         NetworkMethods.Initialise(FirebaseFirestore.getInstance());
-        //Profile sampleProfile = new Profile("Utkarsh","cse",user.getEmail(),1);
-        //NetworkMethods.WriteProfile(sampleProfile,this);
         NetworkMethods.ReadProfile(user.getEmail(),this);
+        userEmail = user.getEmail();
     }
 
     @Override
@@ -205,16 +203,27 @@ public class SignInActivity extends AppCompatActivity implements
         Profile profile = NetworkMethods.profileCache;
         if (profile == null)
         {
-            PersonalInfoAnctivity.profile = new Profile();
+            SetProfile(new Profile());
+            PersonalInfoAnctivity.profile.Print();
+            PersonalInfoAnctivity.profile.email = mAuth.getCurrentUser().getEmail();
             Intent intent = new Intent(this,PersonalInfoAnctivity.class);
             startActivity(intent);
         }
         else
         {
             profile.Print();
-            HomeActivity.profile = profile;
+            SetProfile(profile);
+            Print.print("Changing to Loading");
             Intent intent = new Intent(this,HomeActivity.class);
             startActivity(intent);
         }
+    }
+
+    void SetProfile(Profile profile)
+    {
+        PersonalInfoAnctivity.profile = profile;
+        LoadingActivity.profile = profile;
+        HomeActivity.profile = profile;
+        ProfileListGenerator.profile = profile;
     }
 }
