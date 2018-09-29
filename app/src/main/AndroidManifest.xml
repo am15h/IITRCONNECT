@@ -19,7 +19,8 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".PersonalInfoAnctivity" />
-        <activity android:name=".InterestsActivity"></activity>
+        <activity android:name=".InterestsActivity" />
+        <activity android:name=".Loading"></activity>
     </application>
 
 </manifest>
