@@ -21,7 +21,7 @@ public class NetworkMethods
     {
         NetworkMethods.database = database;
         initialised = true;
-        Log.i("NetworkMethods", "Database initialised");
+        Log.i("App", "Database initialised");
     }
 
     public static void WriteProfile(Profile profile, final ResultTrigger trigger)
@@ -49,7 +49,7 @@ public class NetworkMethods
     public static void ReadProfile(String index, final ResultTrigger trigger)
     {
         DocumentReference user = database.collection(COLLECTION_KEY).document(index);
-
+        Log.i("App","Step 1");
         user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
         {
             @Override
@@ -83,12 +83,13 @@ public class NetworkMethods
                         }
                         profileCache = profile;
                         profile.Print();
+                        Log.i("App","Profile loading success");
                         trigger.OnSuccess();
                         return;
                     }
                     profileCache = null;
                     trigger.OnSuccess();
-                    Log.i("Network","Profile loading failed");
+                    Log.i("App","Profile loading failed");
                     //profileCache = profile;
 
                 }
@@ -99,7 +100,7 @@ public class NetworkMethods
                     @Override
                     public void onFailure(@NonNull Exception e)
                     {
-                        Log.e("Network", e.getStackTrace().toString());
+                        Log.e("App", e.getStackTrace().toString());
                         trigger.OnFailure();
                     }
                 });

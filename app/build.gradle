@@ -2,14 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-            storeFile file('C:/Users/AMISH/Desktop/debug.keystore')
-            storePassword 'android'
-        }
-    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.theimprovisers.iitrconnect"
@@ -25,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            signingConfig signingConfigs.config
+            
         }
     }
 }

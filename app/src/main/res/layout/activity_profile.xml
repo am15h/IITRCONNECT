@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bck"
+    android:background="@drawable/ic_launcher_background"
     tools:context=".ProfileActivity">
 
     <TextView
@@ -86,7 +86,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/default_user" />
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <android.support.v7.widget.CardView
         android:layout_width="355dp"

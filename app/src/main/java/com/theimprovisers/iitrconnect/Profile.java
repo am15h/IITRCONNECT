@@ -1,5 +1,7 @@
 package com.theimprovisers.iitrconnect;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +27,20 @@ public class Profile
         this.branch = branch;
         this.email = email;
         this.year = year;
+
+        tags = new Tag[5];
+        tags[0] = new Tag("tag0");
+        tags[1] = new Tag("tag1");
+        tags[2] = new Tag("tag2");
+        tags[3] = new Tag("tag3");
+        tags[4] = new Tag("tag4");
+    }
+    public Profile()
+    {
+        this.name = "";
+        this.branch = "";
+        this.email = "";
+        this.year = 0;
 
         tags = new Tag[5];
         tags[0] = new Tag("tag0");
@@ -64,6 +80,6 @@ public class Profile
             bld.append(tags[i].value);
             bld.append(" ");
         }
-        Log.i("Profile",bld.toString());
+        Log.i("App",bld.toString());
     }
 }

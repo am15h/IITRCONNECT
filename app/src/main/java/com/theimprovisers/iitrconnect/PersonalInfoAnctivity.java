@@ -8,7 +8,7 @@ import butterknife.BindView;
 
 public class PersonalInfoAnctivity extends AppCompatActivity {
 
-
+    public static  Profile profile;
     @BindView(R.id.text_email)
     EditText textEmail;
 
