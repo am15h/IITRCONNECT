@@ -18,5 +18,6 @@ public class MainActivity extends AppCompatActivity
         NetworkMethods.Initialise(FirebaseFirestore.getInstance());
         Profile sampleProfile = new Profile("alpha","cse","beta@gmail",1);
         NetworkMethods.WriteProfile(sampleProfile);
+
     }
 }
