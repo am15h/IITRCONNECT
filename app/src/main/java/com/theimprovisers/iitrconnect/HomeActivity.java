@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -30,6 +31,9 @@ public class HomeActivity extends AppCompatActivity {
         addConnectionsFragment = new AddConnectionsFragment();
         myConnectionsFragment = new MyConnectionsFragment();
         myProfileFragment = new MyProfileFragment();
+
+        MainNav.setSelectedItemId(R.id.nav_add_connections);
+
 
         MainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
