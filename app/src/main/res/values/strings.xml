@@ -2,6 +2,7 @@
     <string name="app_name">IITR CONNECT</string>
     <string name="firebase_status_fmt">Firebase User: %s</string>
     <string name="google_status_fmt">Email ID: %s</string>
+
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

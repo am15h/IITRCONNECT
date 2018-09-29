@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -27,6 +28,7 @@ public class SignInActivity extends AppCompatActivity implements
 
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "GoogleActivity";
+
 
     private TextView mStatusTextView;
     private TextView mDetailTextView;
@@ -141,12 +143,11 @@ public class SignInActivity extends AppCompatActivity implements
             mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-
-            Intent changeIntent = new Intent(this,MainActivity.class);
+            Intent changeIntent = new Intent(this,PersonalInfoAnctivity.class);
             startActivity(changeIntent);
 
         } else {
-            mStatusTextView.setText("Signed out");
+            mStatusTextView.setText("Signed out !!!");
             mDetailTextView.setText(null);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);

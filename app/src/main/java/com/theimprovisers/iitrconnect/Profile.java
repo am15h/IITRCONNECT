@@ -1,10 +1,14 @@
 package com.theimprovisers.iitrconnect;
 
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Profile
 {
+
+
     public String name;
     public String branch;
     public String email;
@@ -15,6 +19,8 @@ public class Profile
     public static String BRANCH_KEY = "branch";
     public static String EMAIL_KEY = "email";
     public static String YEAR_KEY = "year";
+
+
 
 
 
@@ -34,6 +40,9 @@ public class Profile
         tags[4] = new Tag("tag4");
     }
 
+
+
+
     public Map<String,Object> GetMap()
     {
         Map<String,Object> map = new HashMap<>();
@@ -47,5 +56,21 @@ public class Profile
             map.put(tags[i].name,tags[i].value);
         }
         return map;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
