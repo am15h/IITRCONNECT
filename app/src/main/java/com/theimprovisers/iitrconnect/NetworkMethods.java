@@ -16,6 +16,7 @@ public class NetworkMethods
     private static FirebaseFirestore database;
     private static boolean initialised = false;
     public static Profile profileCache;
+    public static ResultTrigger trigger;
 
     public static void Initialise(FirebaseFirestore database)
     {
@@ -48,24 +49,27 @@ public class NetworkMethods
 
     public static void ReadProfile(String index, final ResultTrigger trigger)
     {
+        NetworkMethods.trigger = trigger;
         DocumentReference user = database.collection(COLLECTION_KEY).document(index);
-        Log.i("App","Step 1"+user);
+        Log.i("App","Step 1"+index);
         user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
         {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task)
             {
+                Log.i("App","Complete"+task.isSuccessful());
                 if (task.isSuccessful())
                 {
                     DocumentSnapshot doc = task.getResult();
-                    trigger.OnSuccess();
                     Object name = doc.get(Profile.NAME_KEY);
                     Object email = doc.get(Profile.EMAIL_KEY);
                     Object branch = doc.get(Profile.BRANCH_KEY);
                     Object year = doc.get(Profile.YEAR_KEY);
-                    StringBuilder fields = new StringBuilder("");
+
+                    Log.i("App","REF2"+(name != null && email != null && branch != null && year != null));
                     if (name != null && email != null && branch != null && year != null)
                     {
+                        Log.i("App","IFFFFFF");
                         Profile profile = new Profile((String)name,(String)email,(String)branch,(int)((long)year));
                         boolean validTags = true;
                         for (int i = 0;i < profile.tags.length;i++)
@@ -86,43 +90,30 @@ public class NetworkMethods
                             profileCache = profile;
                             profile.Print();
                             Log.i("App", "Profile loading success");
-                            trigger.OnSuccess();
+                            NetworkMethods.trigger.OnSuccess();
                         }
                         else
                         {
                             profileCache = null;
-                            trigger.OnSuccess();
+                            NetworkMethods.trigger.OnSuccess();
                             Log.i("App", "Profile loading failed");
                         }
                     }
                     else
                     {
-                        profileCache = null;
-                        trigger.OnSuccess();
                         Log.i("App", "Profile loading failed");
+                        profileCache = null;
+                        NetworkMethods.trigger.OnSuccess();
                     }
 
                 }
-            }
-        })
-                .addOnFailureListener(new OnFailureListener()
+                else
                 {
-                    @Override
-                    public void onFailure(@NonNull Exception e)
-                    {
-                        Log.e("App", e.getStackTrace().toString());
-                        trigger.OnFailure();
-                    }
-                });
-    }
-
-    public static void OnProfileWriteFailed()
-    {
-        Log.i("Network", "Profile write Success");
-    }
-
-    public static void OnProfileWriteSuccess()
-    {
-        Log.i("Network", "Profile write Success");
+                    Log.i("App","FAiled");
+                    Exception e = task.getException();
+                    NetworkMethods.trigger.OnFailure();
+                }
+            }
+        });
     }
 }
