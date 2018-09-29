@@ -67,7 +67,7 @@ public class MyIntrestsActivity extends AppCompatActivity implements ResultTrigg
             public void onClick(View v)
             {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(MyIntrestsActivity.this);
-                mBuilder.setTitle("Select Programming Language");
+                mBuilder.setTitle("Select Programming Platform");
                 mBuilder.setMultiChoiceItems(listItemsProgrammingLanguage, checkedItemsProrgrammingLanguage, new DialogInterface.OnMultiChoiceClickListener()
                 {
                     @Override
