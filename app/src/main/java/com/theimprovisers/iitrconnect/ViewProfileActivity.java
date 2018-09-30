@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,9 @@ public class ViewProfileActivity extends AppCompatActivity {
                 AddConnectionsFragment.profiles = list.toArray(new Profile[list.size()]);
                 b.setVisibility(View.INVISIBLE);
                 StorageClass.Write(MyConnectionsFragment.profileArrayList);
+
+
+                Toast.makeText(v.getContext(),getString(R.string.emoji),Toast.LENGTH_LONG).show();
             }
         });
         ArrayList<String> list = new ArrayList<String>();
@@ -60,7 +64,7 @@ public class ViewProfileActivity extends AppCompatActivity {
             {
                 if (profile.tags[i].value)
                 {
-                    list.add("#Common# "+currentProfile.tags[i].name);
+                    list.add(getString(R.string.emoji)+currentProfile.tags[i].name);
                 }
                 else
                 {

@@ -97,7 +97,7 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.PersonViewHolder>
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(),profileName.getText(),Toast.LENGTH_LONG).show();
+
                     ViewProfileActivity.currentProfile = currentProfile;
                     Intent intent = new Intent(v.getContext(), ViewProfileActivity.class);
                     v.getContext().startActivity(intent);
