@@ -7,6 +7,69 @@
     android:orientation="vertical"
     android:padding="8dp">
 
+
+    <TextView
+        android:id="@+id/profile_name"
+        style="@style/AppTheme.Subheader"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/profile_image"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="4dp"
+        android:layout_toLeftOf="@+id/match_number"
+        android:layout_toRightOf="@+id/profile_image"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="18sp"
+        tools:text="Amish Garg" />
+
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/profile_image"
+    android:layout_alignParentStart="true"
+    android:layout_marginStart="97dp"
+    android:layout_marginBottom="0dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/profile_image"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="119dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="-1dp"
+        android:layout_toStartOf="@+id/profile_year"
+        android:layout_weight="4"
+        android:text="|" />
+
+    <TextView
+        android:id="@+id/profile_branch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/profile_name"
+        android:layout_alignBottom="@+id/profile_image"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="1"
+        android:text="CSE" />
+
+    <TextView
+        android:id="@+id/profile_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/profile_name"
+        android:layout_alignBottom="@+id/profile_image"
+        android:layout_marginStart="65dp"
+        android:layout_marginBottom="0dp"
+        android:layout_weight="1"
+        android:text="1 Year" />
+
+
     <ImageView
         android:id="@+id/profile_image"
         android:layout_width="60dp"
@@ -14,78 +77,23 @@
         android:scaleType="centerCrop"
         android:src="@drawable/default_user" />
 
-    <TextView
-        android:id="@+id/profile_name"
-        style="@style/AppTheme.Subheader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/profile_image"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginRight="-25dp"
-        android:layout_marginBottom="4dp"
-        android:layout_toLeftOf="@+id/match_number"
-        android:layout_toEndOf="@+id/profile_image"
-        android:layout_toRightOf="@+id/profile_image"
-        android:ellipsize="end"
-        android:maxLines="1"
-        tools:text="Amish Garg" />
-
-
-    <TextView
-        android:id="@+id/profile_year"
-        style="@style/AppTheme.Body1"
-        android:layout_width="67dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_name"
-
-        android:layout_alignLeft="@+id/profile_name"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="13dp"
-        android:layout_toEndOf="@+id/profile_image"
-        android:text="CSE"
-        android:textColor="@color/greySecondary"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/branch_year_divider"
-        style="@style/AppTheme.TextDivider"
-        android:layout_alignTop="@+id/profile_year"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/profile_year"
-        android:layout_toRightOf="@+id/profile_year"
-        android:text="|" />
-
-    <TextView
-        android:id="@+id/profile_branch"
-        style="@style/AppTheme.Body1"
-        android:layout_width="56dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/branch_year_divider"
-        android:layout_alignTop="@+id/profile_year"
-        android:layout_marginStart="21dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="0dp"
-        android:layout_toRightOf="@+id/branch_year_divider"
-        android:text="1"
-        android:textColor="@color/greySecondary" />
 
     <TextView
         android:id="@+id/match_number"
         style="@style/AppTheme.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/profile_year"
+        android:layout_width="119dp"
+        android:layout_height="59dp"
+        android:layout_alignBottom="@+id/profile_image"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="1dp"
+        android:textAlignment="center"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="9" />
+        tools:text="8000" />
 
 </RelativeLayout>
