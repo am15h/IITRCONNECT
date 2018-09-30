@@ -29,13 +29,15 @@
         <activity android:name=".ViewProfileActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
-            </activity>
+         </activity>
         <activity android:name=".PersonalInfoAnctivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity android:name=".MyIntrestsActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+            
+             </activity>
         <activity android:name=".LoadingActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
