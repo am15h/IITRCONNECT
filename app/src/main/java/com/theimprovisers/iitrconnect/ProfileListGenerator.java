@@ -88,7 +88,22 @@ public class ProfileListGenerator implements ResultTrigger
                 p[i].count += 2;
             }
         }
-
+        for (int i = 0;i < p.length;i++)
+        {
+            p[i].count*= 10000;
+            int sum = 0;
+            for (int j = 0;j < p[i].tags.length;j++)
+            {
+                if (p[i].tags[j].value == true)
+                {
+                    sum += 1;
+                }
+            }
+            if (sum > 0)
+            {
+                p[i].count /= sum;
+            }
+        }
         while (!sort)
         {
             sort = true;

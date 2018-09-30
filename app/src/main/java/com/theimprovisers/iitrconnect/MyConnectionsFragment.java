@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ public class MyConnectionsFragment extends Fragment {
     public static ArrayList<Profile> profileArrayList = new ArrayList<>();
 
     private MyAdapter mAdapter;
+    private TextView emptyView;
 
     private RecyclerView mProfileRecycler;
 
@@ -32,6 +34,7 @@ public class MyConnectionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getActivity().findViewById(R.id.emptyString);
         // Inflate the layout for this fragment
         Print.print("RENDER");
         myProfiles = new Profile[15];
@@ -43,7 +46,6 @@ public class MyConnectionsFragment extends Fragment {
         {
             myProfiles[i] = new Profile("Utka","CSE","amish@gmail.com",3);
         }
-        // I
 
         View layout = inflater.inflate(R.layout.fragment_my_connections,container,false);
         mProfileRecycler = (RecyclerView)layout.findViewById(R.id.recycler_my_connection);
@@ -70,6 +72,16 @@ public class MyConnectionsFragment extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mProfileRecycler.setLayoutManager(layoutManager);
         mProfileRecycler.setAdapter(mAdapter);
+
+        emptyView = getActivity().findViewById(R.id.emptyString);
+        if (myProfiles.length == 0)
+        {
+            emptyView.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            emptyView.setVisibility(View.INVISIBLE);
+        }
     }
 
 }

@@ -37,8 +37,21 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="0dp"
+        android:visibility="visible"
         android:background="#FFFFFF"
         tools:listitem="@layout/item_profile" />
+
+    <TextView
+        android:id="@+id/emptyString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text=" ¯\\_(ツ)_/¯"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>

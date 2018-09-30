@@ -61,6 +61,9 @@ public class HomeActivity extends AppCompatActivity {
         setFragment(addConnectionsFragment);
 
     }
+    @Override
+    public void onBackPressed() {
+    }
 
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
