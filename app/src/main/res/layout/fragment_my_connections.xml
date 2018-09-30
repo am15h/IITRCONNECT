@@ -47,11 +47,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text=" ¯\\_(ツ)_/¯"
+        android:text=" ¯\\_(ツ)_/¯  \n\n Nothing Here."
         android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
 
 </RelativeLayout>
