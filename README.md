@@ -1,2 +1,3 @@
 # IITRCONNECT
-Main Project
+
+An app to find people matching similar interests.
